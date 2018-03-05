@@ -10,6 +10,7 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 CREATE USER IF NOT EXISTS 'lamp_user'@'%';
 
 SET PASSWORD FOR 'lamp_user'@'%' = 'lamp_user';
