@@ -2,7 +2,7 @@
 // including the database connection file
 include_once("config.php");
 // fetching data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
+$result = mysqli_query($mysqli, "SELECT * FROM usuario ORDER BY id DESC");
 ?>
 
 <!DOCTYPE html>
@@ -18,19 +18,22 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 	<table width='80%' border=0>
 
 	<tr bgcolor='#CCCCCC'>
-		<td>Name</td>
-		<td>Age</td>
+		<td>Id</td>
+		<td>Nombre</td>
+		<td>Password</td>
 		<td>Email</td>
-		<td>Update</td>
 	</tr>
 
 	<?php
 	while($res = mysqli_fetch_array($result)) {
 		echo "<tr>";
-		echo "<td>".$res['name']."</td>";
-		echo "<td>".$res['age']."</td>";
+		echo "<td>".$res['id']."</td>";
+		echo "<td>".$res['nombre']."</td>";
+		echo "<td>".$res['password']."</td>";
 		echo "<td>".$res['email']."</td>";
-		echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+		//echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | 
+		//<a href=\"delete.php?id=$res[id]\" 
+		//onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
 	}
 	mysqli_close($msqli);
 	?>

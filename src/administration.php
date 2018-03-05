@@ -1,9 +1,3 @@
-<?php
-// including the database connection file
-include_once("config.php");
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,8 +28,10 @@ include_once("config.php");
     </form>
     </br>
     <?php
-    
-    if ($_GET["inputUser"] == 'alvaro' && $_GET["inputPassword"] == 'alvaro') {
+    include_once("config.php");
+    $mail = mysqli_query($mysqli, "SELECT email from usuarios where id = 1" );
+    $pass = mysqli_query($mysqli, "SELECT password from usuarios where id = 1" );
+    if ($_GET["inputUser"] == $mail && $_GET["inputPassword"] == $pass) {
       header('Location: administration.html');
     }
     ?>
