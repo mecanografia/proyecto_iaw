@@ -20,8 +20,8 @@
       <img class="mb-4" src="https://www.artescritorio.com/wp-content/uploads/2015/11/monsterball-portada.png" 
       alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Catch in!! o logeate</h1>
-      <label for="inputUser" class="sr-only">Username</label>
-      <input type="text" name="inputUser" class="form-control" placeholder="Username" autofocus>
+      <label for="inputUser" class="sr-only">Email Address</label>
+      <input type="text" name="inputEmail" class="form-control" placeholder="Email" autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" name="inputPassword" class="form-control" placeholder="Password">
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
@@ -29,9 +29,14 @@
     </br>
     <?php
     include_once("config.php");
-    $mail = mysqli_query($mysqli, "SELECT email from usuarios where id = 1" );
-    $pass = mysqli_query($mysqli, "SELECT password from usuarios where id = 1" );
-    if ($_GET["inputUser"] == $mail && $_GET["inputPassword"] == $pass) {
+    $result = mysqli_query($mysqli, "SELECT 'email', 'password' FROM usuario where (email = 'mail') and (password = 'pass')");
+    $mail = $_GET['inputEmail'];
+    $pass = md5($_GET['inputPassword']);
+    while($res = mysqli_fetch_array($result)) {
+      echo "<h1>".$res['email']."</h1>";
+      echo "<h1>".$res['password']."</h1>";
+    }
+    if ($res['email'] = $mail && $res['password'] = $pass) {
       header('Location: administration.html');
     }
     ?>
