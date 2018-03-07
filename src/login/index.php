@@ -1,16 +1,3 @@
-<?php
-    include_once("config.php");
-    if 
-      $consulta = ("SELECT email, password FROM usuario WHERE email = 'usuario@usuario.es'");
-      $result = mysqli_query($mysqli, $consulta);
-      $res = mysqli_num_rows($result);
-      $enviar = $_GET['submit'];
-      if ($res >= 1) {
-        header('Location: administration.html');
-      } else {
-        header('Location: error.php');
-      }
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,14 +9,13 @@
     <title></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="style/bootstrap.min.css" rel="stylesheet">
+    <link href="../style/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="style/signin.css" rel="stylesheet">
+    <link href="../style/signin.css" rel="stylesheet">
   </head>
-
   <body class="text-center">
-    <form class="form-signin" method="get">
+    <form class="form-signin" method="post">
       <img class="mb-4" src="https://www.artescritorio.com/wp-content/uploads/2015/11/monsterball-portada.png" 
       alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Catch in!! o logeate</h1>
@@ -39,5 +25,19 @@
       <input type="password" name="inputPassword" class="form-control" placeholder="Password">
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
+<?php
+session_start();
+include("../config.php");
+$email = $_POST['inputEmail'];
+$passwd = md5($_POST['inputPassword']);
+$consulta =mysqli_query ($mysqli, "SELECT email, password FROM usuario WHERE (email = '$email') AND (password = '$passwd')");
+$res = mysqli_num_rows($consulta);
+if ($res >= 1) {
+  $_SESSION['canAccess'] = true;
+  header('Location: dashboard.php');
+  } else {
+  $_SESSION['canAccess'] = false;
+  }
+?>
   </body>
 </html>
