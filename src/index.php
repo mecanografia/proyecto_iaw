@@ -14,7 +14,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM usuario ORDER BY id DESC");
 
 <body>
 <a href="add.html">Add New Data</a><br/><br/>
-<a href="administration.php">Area de Administracion</a><br/><br/>
+<a href="login/index.php">Area de Administracion</a><br/><br/>
 	<table width='80%' border=0>
 
 	<tr bgcolor='#CCCCCC'>
