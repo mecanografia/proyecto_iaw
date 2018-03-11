@@ -1,3 +1,6 @@
+<?php
+include '../config.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,15 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
 
     <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -43,8 +45,9 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Dashboard</h1>
+            <!--
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -55,11 +58,25 @@
                 This week
               </button>
             </div>
+            -->
           </div>
-
           <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
-
-          <h2>Section title</h2>
+          <?php
+          $consult = mysqli_query($mysqli,"select * from producto");
+          echo "<table align=\"center\">";
+          echo "<div class='productos'><thead>
+          <th>Nombre</th>
+          <th>Precio</th>
+          </thead></div>";
+          while($res = mysqli_fetch_array($consult)) {
+          echo "<br/>";
+          echo "<tr>
+          <td>".$res['nombre']."</td>
+          <td>".$res['precio']."</td>
+          </tr>";
+          }
+          echo "</table>";
+          ?>
         </main>
       </div>
     </div>
@@ -111,21 +128,6 @@
     </script>
   </body>
 </html>
-
-<?php
-include("../config.php");
-$consult = mysqli_query($mysqli,"select * from producto");
-echo "<table align=\"center\">";
-echo "<thead>
-<th>Nombre</th>
-<th>Precio</th>
-</thead>";
-while($res = mysqli_fetch_array($consult)) {
-echo "<br/>";
-echo "<tr>
-<td>".$res['nombre']."</td>
-<td>".$res['precio']."</td>
-</tr>";
-}
-echo "</table>";
-?>
+<style type="text/css">
+<?php include 'css/php.css'; ?>
+</style>

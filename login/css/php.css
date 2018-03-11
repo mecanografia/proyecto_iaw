@@ -1,0 +1,7 @@
+th {
+    color: red;
+    border: 1px solid black;
+}
+.productos, td {
+    color : blue;
+}

@@ -23,3 +23,11 @@ CREATE TABLE producto (
 );
 
 INSERT INTO usuario VALUES (1, 'usuario@usuario.es', 'f8032d5cae3de20fcec887f395ec9a6a', 'Usuario');
+INSERT INTO fabricante VALUES (1, 'HP');
+INSERT INTO fabricante VALUES (2, 'LG');
+INSERT INTO fabricante VALUES (3, 'LOGITECH');
+INSERT INTO fabricante VALUES (4, 'APPLE');
+INSERT INTO producto VALUES (1, 'HP PAVILION', '729.95', 1);
+INSERT INTO producto VALUES (2, 'BARRA DE SONIDO SH2', '99', 2);
+INSERT INTO producto VALUES (3, 'RATON LOGITECH INALAMBRICO', '12.99', 3);
+INSERT INTO producto VALUES (4, 'MACBOOK AIR', '869', 4);
