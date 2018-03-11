@@ -10,8 +10,8 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
 
   # Load nginx
-  config.vm.define "web" do |app|
-    app.vm.hostname = "web"
+  config.vm.define "projecto" do |app|
+    app.vm.hostname = "projecto"
     #app.vm.network "public_network"
     app.vm.network "private_network", ip: "192.168.33.30"
     app.vm.provision "shell", path: "provision/provision-for-nginx.sh"

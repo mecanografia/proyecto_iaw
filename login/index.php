@@ -9,10 +9,10 @@
     <title></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../style/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../style/signin.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
     <form class="form-signin" method="post">
