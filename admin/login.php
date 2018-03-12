@@ -9,10 +9,10 @@
     <title></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="../css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
     <form class="form-signin" method="post">
@@ -39,5 +39,5 @@ if ($res >= 1) {
   $_SESSION['canAccess'] = false;
   }
 ?>
-  </body>
+</body>
 </html>

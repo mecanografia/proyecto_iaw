@@ -19,6 +19,8 @@ CREATE TABLE producto (
   nombre VARCHAR(100) NOT NULL,
   precio DOUBLE NOT NULL,
   codigo_fabricante INT UNSIGNED NOT NULL,
+  imagen varchar (256),
+  descripcion varchar (512),
   FOREIGN KEY (codigo_fabricante) REFERENCES fabricante(codigo)
 );
 
@@ -27,7 +29,10 @@ INSERT INTO fabricante VALUES (1, 'HP');
 INSERT INTO fabricante VALUES (2, 'LG');
 INSERT INTO fabricante VALUES (3, 'LOGITECH');
 INSERT INTO fabricante VALUES (4, 'APPLE');
-INSERT INTO producto VALUES (1, 'HP PAVILION', '729.95', 1);
-INSERT INTO producto VALUES (2, 'BARRA DE SONIDO SH2', '99', 2);
-INSERT INTO producto VALUES (3, 'RATON LOGITECH INALAMBRICO', '12.99', 3);
-INSERT INTO producto VALUES (4, 'MACBOOK AIR', '869', 4);
+INSERT INTO fabricante VALUES (5, 'MSI');
+INSERT INTO producto(nombre, precio, codigo_fabricante, imagen, descripcion) VALUES('HP PAVILION', '729.95', 1, '../images/1.jpg','bla bla...');
+INSERT INTO producto(nombre, precio, codigo_fabricante, imagen, descripcion) VALUES('BARRA DE SONIDO SH2', '99', 2, '../images/2.jpg','bla bla...');
+INSERT INTO producto(nombre, precio, codigo_fabricante, imagen, descripcion) VALUES('RATON LOGITECH INALAMBRICO', '12.99', 3, '../images/3.jpg','bla bla...');
+INSERT INTO producto(nombre, precio, codigo_fabricante, imagen, descripcion) VALUES('MACBOOK AIR', '869', 4, '../images/4.jpg','bla bla...');
+INSERT INTO producto(nombre, precio, codigo_fabricante, imagen, descripcion) VALUES('IMPRESORA HP DESKJET F2480', '49.90','1', '../images/5.png','bla bla...');
+INSERT INTO producto(nombre, precio, codigo_fabricante, imagen, descripcion) VALUES('GTX 1050', '459.80',5, '../images/6.jpg','bla bla...');
