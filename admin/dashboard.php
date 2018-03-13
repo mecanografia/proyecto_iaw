@@ -1,3 +1,11 @@
+<?php
+include('../config.php');
+session_start();
+if($_SESSION['canAccess'] == false) {
+    header('Location: login.php');
+    exit;
+} else {echo "<h2>Estás dentro</h2>";}
+?>
 <!doctype html>
 <html lang="en">
   <head>

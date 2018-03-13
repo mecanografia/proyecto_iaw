@@ -80,6 +80,7 @@ $consulta = mysqli_query($mysqli,"select nombre from fabricante");
                   <th>Nombre</th>
                   <th>Precio</th>
                   <th>Foto</th>
+                  <th>Fabricante</th>
                 </tr>
               </thead>
               <tbody>
@@ -94,8 +95,8 @@ $consulta = mysqli_query($mysqli,"select nombre from fabricante");
                     </tr>";
                     }
                     while($res = mysqli_fetch_array($consulta)){
-                    echo "
-                    <td>".$res['nombre']."</td></tr>";
+                    echo "<br />";
+                    echo "<td>".$res['nombre']."</td>";
                     }
                     mysqli_close($mysqli);
                   ?>

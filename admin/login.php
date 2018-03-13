@@ -1,3 +1,18 @@
+<?php
+session_start();
+include("../config.php");
+$email = $_POST['inputEmail'];
+$passwd = md5($_POST['inputPassword']);
+$consulta =mysqli_query ($mysqli, "SELECT email, password FROM usuario WHERE (email = '$email') AND (password = '$passwd')");
+$res = mysqli_num_rows($consulta);
+if ($res >= 1) {
+  $_SESSION['canAccess'] = true;
+  header('Location: dashboard.php');
+  } else {
+  $_SESSION['canAccess'] = false;
+  header('Location: logout.php');
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,19 +40,5 @@
       <input type="password" name="inputPassword" class="form-control" placeholder="Password">
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
-<?php
-session_start();
-include("../config.php");
-$email = $_POST['inputEmail'];
-$passwd = md5($_POST['inputPassword']);
-$consulta =mysqli_query ($mysqli, "SELECT email, password FROM usuario WHERE (email = '$email') AND (password = '$passwd')");
-$res = mysqli_num_rows($consulta);
-if ($res >= 1) {
-  $_SESSION['canAccess'] = true;
-  header('Location: dashboard.php');
-  } else {
-  $_SESSION['canAccess'] = false;
-  }
-?>
 </body>
 </html>
