@@ -69,16 +69,15 @@
             include ("config.php");
             $consulta = mysqli_query($mysqli, "SELECT * FROM producto");
             $contador = mysqli_num_rows($consulta);
-            for ($i = 1,$i <= $contador, $i++) {
+            for ($i = 1;$i <= $contador; $i++) {
               $query = mysqli_query($mysqli, "SELECT * FROM producto WHERE codigo = $i");
               while($res = mysqli_fetch_array($query)) {
               echo "<br/>";
-              echo "<td><img src=\"".$res['imagen']."\"width=\"150\" height=\"100\"/></td>";
+              echo "<img src=\"".$res['imagen']."\"width=\"150\" height=\"100\"/>";
               echo"<div class='col-md-4'>";
               echo"<div class='card mb-4 box-shadow'>";
-              echo"<img class='card-img-top' >";
               echo"<div class='card-body'>";
-              echo"<p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>";
+              echo"<p class='card-text'>".$res['descripcion']."</p>";
               echo"<div class='d-flex justify-content-between align-items-center'>";
               echo"<div class='btn-group'>";
               echo"<button type='button' class='btn btn-sm btn-outline-secondary'>View</button>";
