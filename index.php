@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -67,47 +67,36 @@
           <div class="row">
             <?php
             include ("config.php");
-            $consulta = mysqli_query($mysqli, "SELECT * FROM producto");
+            $consulta = mysqli_query($mysqli, "SELECT * FROM producto ");
             $contador = mysqli_num_rows($consulta);
             for ($i = 1;$i <= $contador; $i++) {
               $query = mysqli_query($mysqli, "SELECT * FROM producto WHERE codigo = $i");
               while($res = mysqli_fetch_array($query)) {
-              echo "<br/>";
-              echo "<img src=\"".$res['imagen']."\"width=\"150\" height=\"100\"/>";
-              echo"<div class='col-md-4'>";
-              echo"<div class='card mb-4 box-shadow'>";
-              echo"<div class='card-body'>";
-              echo"<p class='card-text'>".$res['descripcion']."</p>";
-              echo"<div class='d-flex justify-content-between align-items-center'>";
-              echo"<div class='btn-group'>";
-              echo"<button type='button' class='btn btn-sm btn-outline-secondary'>View</button>";
-              echo"<button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>";
-              echo"</div>";
-              echo"<small class='text-muted'>9 mins</small>";
-              echo"</div>";
-              echo"</div>";
-              echo"</div>";
-              echo"</div>";
+                echo"<br/>
+                <img src=\"".$res['imagen']."\"width=\"150\" height=\"130\"/>
+                <div class='col-md-4'>
+                    <div class='card mb-4 box-shadow'>
+                        <div class='card-body'>
+                        <p class='card-text'>".$res['descripcion']."</p>
+                            <div class='d-flex justify-content-between align-items-center'>
+                            <div class='btn-group'>
+                                <button type=\"button\" onclick=\"location.href=
+                                'productos/producto.php?codigo=".$res['codigo']."'\" 
+                                class=\"btn btn-sm btn-outline-secondary\">View</button>
+                                <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
+                            </div>
+                                <small class='text-muted'>9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
               }
-            }
-            ?>
+              }
+              ?>
           </div>
         </div>
       </div>
-
     </main>
-
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
-      </div>
     </footer>
   </body>
 </html>
-<?php
-
-?>

@@ -8,9 +8,6 @@ $res = mysqli_num_rows($consulta);
 if ($res >= 1) {
   $_SESSION['canAccess'] = true;
   header('Location: dashboard.php');
-  } else {
-  $_SESSION['canAccess'] = false;
-  header('Location: logout.php');
   }
 ?>
 <!DOCTYPE html>

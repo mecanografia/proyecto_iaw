@@ -1,7 +1,6 @@
 <?php
 include '../config.php';
-$consult = mysqli_query($mysqli,"select * from producto");
-$consulta = mysqli_query($mysqli,"select nombre from fabricante");
+$consult = mysqli_query($mysqli,"select * from producto inner join fabricantes on codigo_fabricante.producto=codigo.fabricante");
 ?>
 <style type="text/css">
 <?php include('../css/php.css'); ?>
