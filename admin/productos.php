@@ -1,6 +1,6 @@
 <?php
 include '../config.php';
-$consult = mysqli_query($mysqli,"select * from producto inner join fabricantes on codigo_fabricante.producto=codigo.fabricante");
+$consult = mysqli_query($mysqli,"select * from producto ");
 ?>
 <style type="text/css">
 <?php include('../css/php.css'); ?>
@@ -16,7 +16,7 @@ $consult = mysqli_query($mysqli,"select * from producto inner join fabricantes o
     <title>Productos</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
     <link href="../css/dashboard.css" rel="stylesheet" type="text/css">
@@ -57,20 +57,7 @@ $consult = mysqli_query($mysqli,"select * from producto inner join fabricantes o
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Productos</h1>
-            <!--
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Share</button>
-                <button class="btn btn-sm btn-outline-secondary">Export</button>
-              </div>
-              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                This week
-              </button>
-            </div>
-            -->
           </div>
-          <!-- <canvas class="my-4" id="myChart" width="900" height="380"></canvas> -->
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
@@ -79,7 +66,7 @@ $consult = mysqli_query($mysqli,"select * from producto inner join fabricantes o
                   <th>Nombre</th>
                   <th>Precio</th>
                   <th>Foto</th>
-                  <th>Fabricante</th>
+                  <th>Descripcion</th>
                 </tr>
               </thead>
               <tbody>
@@ -91,6 +78,7 @@ $consult = mysqli_query($mysqli,"select * from producto inner join fabricantes o
                     <td>".$res['nombre']."</td>
                     <td>".$res['precio']."</td>
                     <td><img src=\"".$res['imagen']."\"width=\"150\" height=\"100\"/></td>
+                    <td>".$res['descripcion']."</td>
                     </tr>";
                     }
                     while($res = mysqli_fetch_array($consulta)){
