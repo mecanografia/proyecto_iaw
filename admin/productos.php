@@ -1,6 +1,5 @@
 <?php
-include '../config.php';
-$consult = mysqli_query($mysqli,"select * from producto ");
+
 ?>
 <style type="text/css">
 <?php include('../css/php.css'); ?>
@@ -23,41 +22,31 @@ $consult = mysqli_query($mysqli,"select * from producto ");
   </head>
 
   <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
-        </li>
-      </ul>
-    </nav>
 
     <div class="container-fluid">
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
-            <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link active" href="dashboard.php">
                   <span data-feather="home"></span>
                   Dashboard <span class="sr-only">(current)</span>
                 </a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="shopping-cart"></span>
                   Productos
                 </a>
               </li>
-            <ul>
+            </ul>
           </div>
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Productos</h1>
-          </div>
+
+          <h1 class="h2">Productos</h1>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
@@ -71,24 +60,21 @@ $consult = mysqli_query($mysqli,"select * from producto ");
               </thead>
               <tbody>
                   <?php
+                    include '../config.php';
+                    $consult = mysqli_query($mysqli,"select * from producto ");
                     while($res = mysqli_fetch_array($consult)) {
-                    echo "<br/>";
                     echo "<tr>
                     <td>".$res['codigo']."</td>
                     <td>".$res['nombre']."</td>
-                    <td>".$res['precio']."</td>
-                    <td><img src=\"".$res['imagen']."\"width=\"150\" height=\"100\"/></td>
+                    <td>".$res['precio']."€</td>
+                    <td><img src=\"".$res['imagen']."\"width=\"130\" height=\"100\"/></td>
                     <td>".$res['descripcion']."</td>
                     </tr>";
                     }
-                    while($res = mysqli_fetch_array($consulta)){
-                    echo "<br />";
-                    echo "<td>".$res['nombre']."</td>";
-                    }
-                    mysqli_close($mysqli);
                   ?>
               </tbody>
             </table>
+          </div>
         </main>
       </div>
     </div>

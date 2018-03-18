@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Frozen Mind PC's</title>
     <link rel="shortcut icon" href="../images/frozen-brain.png">
     <!-- Bootstrap core CSS -->

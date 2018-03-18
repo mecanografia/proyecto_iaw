@@ -17,7 +17,7 @@ if ($res >= 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Alvaro Bueno">
-
+    <link rel="shortcut icon" href="../images/frozen-brain.png">
     <title></title>
 
     <!-- Bootstrap core CSS -->
